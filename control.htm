@@ -1,0 +1,43 @@
+<html>
+<head><!-- saved from url=(0014)about:internet -->
+<title>Logo & Control Bar</title>
+<!-- ©2004 Tamarack Software -->
+<script language="JavaScript">
+<!-- hide script from non-java browser
+
+function nextQst() {
+  if (top.currentQuestion < NumOfQst) {
+    top.currentQuestion = top.currentQuestion + 1;
+    parent.question.location.reload();
+  }
+  else alert('This is the last question on the test.');
+}
+
+function prevQst() {
+  if (top.currentQuestion > 1) {
+    top.currentQuestion = top.currentQuestion - 1;
+    parent.question.location.reload();
+  }
+  else alert('This is the first test question.\n \nClick "Next" to view and answer more questions.');
+}
+
+var NumOfQst = top.all_maxAnswers.length;
+// stop hiding script -->
+</script>
+</head>
+<body background="images/yeltile.gif">
+<center>
+<img src="images/empty.gif">
+<br>
+<img src="images/empty.gif">
+<img src="images/ped.gif">
+<br>
+<br>
+<a href="../index.htm" target="_top"><img src="images/contents.gif" border=0></a> 
+<br>
+<br>
+<a href="javascript:prevQst();"><img src="images/back.gif" border=0></a>
+<a href="javascript:nextQst();"><img src="images/next.gif" border=0></a> 
+</center>
+</body>
+</html>

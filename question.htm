@@ -1,0 +1,87 @@
+<html>
+<head><!-- saved from url=(0014)about:internet -->
+<title>Test Question</title>
+<!-- ©2004 Tamarack Software -->
+<script language="JavaScript">
+<!-- hide script from non-java browser
+
+function docheck(answer, usrchoice) {
+  if (answer == 1) { parent.response.location="respyes.htm"; }
+  else { parent.response.location="respno.htm"; }
+}
+
+function buildQuestion() {
+  parent.response.location="respnone.htm"
+  letter = new Array("A", "B", "C", "D", "E");
+  var graphicNumber = 0;
+  if (top.currentQuestion == 0) { top.currentQuestion = 1;}
+
+  var answer = parseInt(top.all_answers.charAt(top.currentQuestion-1),10);
+  var maxAnswers = parseInt(top.all_maxAnswers.charAt(top.currentQuestion-1),10);
+  var instruction = parseInt(top.all_instruction.charAt(top.currentQuestion-1), 10);
+  var choice = parseInt(top.all_choice.charAt(top.currentQuestion-1),10);
+  var checkStr = "";
+
+  document.write('<body bgcolor=white>');
+  document.write('<form name="choice">');
+  document.write('<table border=0 cellpadding=0 cellspacing=0 width="100%">');
+  document.write('<tr>');
+  document.write('<td align=left valign=top><b>Practice Test<br><br></b></td>');
+  document.write('<td align=right valign=top><b>Question # ' + top.currentQuestion + ' of ' + top.all_maxAnswers.length + '</b></td>');
+  document.write('</tr>');
+  if (top.reference[top.currentQuestion-1] != "0") {
+    document.write('<tr><td align=left colspan=2>For help on this question, see page(s) ' + top.reference[top.currentQuestion-1] + ' in your textbook.</td></tr>');
+  }
+  document.write('<tr><td colspan=2><hr></td></tr>');
+  document.write('</table>');
+  document.write('<br>');
+  document.write('<table border=0 cellpadding=0 cellspacing=0>');
+  if (instruction == 1) {
+    document.write('<tr><td colspan=4><img src="questions/q' + top.currentQuestion + 'g' + (++graphicNumber) + '.jpg"></td><tr>');
+    document.write('<tr><td colspan=4><br></td></tr>');
+  }
+  document.write('<tr>');
+  document.write('<td align=left valign=top colspan=4>' + top.currentQuestion + ')');
+  document.write('<img src="images/empty.gif" width=8 height=1 align=top>');
+  document.write('<img src="questions/q' + top.currentQuestion + 'g' + (++graphicNumber) + '.jpg" align="top"></td>');
+  document.write('</tr>');
+  document.write('<tr><td colspan=2><br></td><td colspan=2></td></tr>');
+  document.write('</table>');
+  document.write('<table border=0 cellpadding=0 cellspacing=0>');
+  if (maxAnswers == 1) {
+    if (answer == 1) {
+      if (choice == 0) {checkStr = "CHECKED";} else {checkStr = "";}
+      document.write('<tr><td colspan=4><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(1,0);"> True</td></tr>');
+      if (choice == 1) {checkStr = "CHECKED";} else {checkStr = "";}
+      document.write('<tr><td colspan=4><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(0,1);"> False</td></tr>');
+    }
+    else {
+      if (choice == 0) {checkStr = "CHECKED";} else {checkStr = "";}
+      document.write('<tr><td colspan=4><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(0,0);"> True</td></tr>');
+      if (choice == 1) {checkStr = "CHECKED";} else {checkStr = "";}
+      document.write('<tr><td colspan=4><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(1,1);"> False</td></tr>');
+    }
+  }
+  else {
+    for (var i=0; i<maxAnswers; i++) {
+      document.write('<tr>');
+
+      if (i == choice) {checkStr = "CHECKED";} else {checkStr = "";}
+      if (answer == (i+1)) document.write('<td><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(1,'+i+');"></td>');
+      else document.write('<td><input type=radio name=ANS'+top.currentQuestion+' '+checkStr+' onClick="docheck(0,'+i+');"></td>');
+      document.write('<td align=right>' + letter[i] + '</td>');
+      document.write('<td><img src="images/empty.gif" width=8 height=1></td>');
+      document.write('<td><img src="questions/q' + top.currentQuestion + 'g' + (++graphicNumber) + '.jpg"></td>');
+      document.write('</tr>');
+    }
+  }
+  document.write('</table>');
+  document.write('</form>');
+  document.write('</body>');
+  document.write('</html>');
+}
+
+buildQuestion();
+// stop hiding script -->
+</script>
+</head>
